@@ -6,11 +6,15 @@ var bodyParser   = require('body-parser');
 var debug        = require('debug')('app:http');
 var cookieParser = require('cookie-parser');
 var session      = require('express-session');
+var passport     = require('passport');
+
+require('dotenv').load();
+
 
 // Load local libraries.
 var env      = require('./config/environment'),
-    mongoose = require('./config/database'),
-    routes   = require('./config/routes');
+    mongoose = require('./config/database');
+   // routes   = require('./routes/index');
 
 // Instantiate a server application.
 var app = express();
@@ -21,6 +25,7 @@ app.set('safe-title', env.SAFE_TITLE);
 // EJS view engine config
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+require('ejs').delimiter = '$';
 
 // Create local variables for use thoughout the application.
 app.locals.title = app.get('title');
@@ -40,17 +45,27 @@ app.use(session({
     saveUninitialized: true
 }))
 
+//passport mounting
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Routing layers: favicon, static assets, dynamic routes, or 404…
 
 // Routes to static assets. Uncomment below if you have a favicon.
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'public')));
 
+//configure passport middleware
+require('./config/passport')(passport);
+
 // Useful for debugging the state of requests.
 app.use(debugReq);
 
 // Defines all of our "dynamic" routes.
-app.use('/', routes);
+//app.use('/', routes);
+
+//require passport route
+require('./routes/index')(app,passport);
 
 // Catches all 404 routes.
 app.use(function(req, res, next) {

@@ -5,6 +5,7 @@ var clientSchema = new mongoose.Schema({
   name:   String,
   phone: String,
   email: String,
+  googleID: String,
   projects: [Project];
 });
 
