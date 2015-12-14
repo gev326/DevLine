@@ -5,6 +5,7 @@ var logger       = require('morgan');
 var bodyParser   = require('body-parser');
 var debug        = require('debug')('app:http');
 var cookieParser = require('cookie-parser');
+var session      = require('express-session');
 
 // Load local libraries.
 var env      = require('./config/environment'),
@@ -32,6 +33,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(cookieParser('notsosecretnowareyou'));
+//session middleware
+app.use(session({
+    secret: 'DevLine',
+    resave: false,
+    saveUninitialized: true
+}))
 
 // Routing layers: favicon, static assets, dynamic routes, or 404…
 
