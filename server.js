@@ -14,21 +14,14 @@ require('dotenv').load();
 // Load local libraries.
 var env      = require('./config/environment'),
     mongoose = require('./config/database');
-   // routes   = require('./routes/index');
 
 // Instantiate a server application.
 var app = express();
 
-// Configure the application (and set it's title!).
-app.set('title', env.TITLE);
-app.set('safe-title', env.SAFE_TITLE);
 // EJS view engine config
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 require('ejs').delimiter = '$';
-
-// Create local variables for use thoughout the application.
-app.locals.title = app.get('title');
 
 // Logging layer.
 app.use(logger('dev'));
@@ -66,6 +59,9 @@ app.use(debugReq);
 
 //require passport route
 require('./routes/index')(app,passport);
+var apiRouter = require('./routes/api');
+
+app.use('/api',apiRouter);
 
 // Catches all 404 routes.
 app.use(function(req, res, next) {

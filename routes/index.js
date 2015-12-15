@@ -28,8 +28,8 @@ module.exports = function(app, passport) {
   });
 
 
-  // // GET /api/users
-  // router.get('/users', userCtrl.all);
+  // GET /api/users
+  router.get('/users', userCtrl.all);
 
 
 }

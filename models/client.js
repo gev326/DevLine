@@ -5,10 +5,9 @@ var clientSchema = new mongoose.Schema({
   name:   String,
   phone: String,
   email: String,
-  googleID: String,
-  projects: [Project];
+  projects: [{type: mongoose.Schema.Types.ObjectId, ref: 'Project'}]
 });
 
-var User = mongoose.model('User', userSchema);
+var Client = mongoose.model('Client', clientSchema);
 
-module.exports = User;
+module.exports = Client;
