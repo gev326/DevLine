@@ -11,3 +11,27 @@ body {
 }
 
 a { color: #00B7FF; }
+
+.session {
+  display: inline;
+  list-style-type:  none;
+}
+
+.content {
+  display: inline;
+}
+
+.pic {
+  float: right;
+}
+
+.h1 {
+  font-size: 100px;
+  text-align: left;
+}
+
+.slide {
+  display: inline;
+  margin-top: 10px;
+  padding-top: 110px;
+}

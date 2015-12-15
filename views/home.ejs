@@ -14,40 +14,22 @@
 </head>
 <body>
 
+
 <ul class="session">
   <$ if (user) { $>
   <li><a href="/logout"></i>Logout</a></li>
-
+  <$ } else { $>
+  <li><a href="/auth/google">Login with Google</a></li>
+  <$ } $>
+</ul>
 
 <a ui-sref-active="active" ui-sref="home">Home</a>
 <a ui-sref-active="active" ui-sref="about">About Us</a>
 
-<div ui-view></div>
-  <$ } else { $>
-  <li><a href="/auth/google">Login with Google</a></li>
-</ul>
+  <div ui-view></div>
 
 
-
-
-<div class ="slide">
-<div class="col-md-6">
-<br>
-<br>
-<h1 class="h1">Welcome to DevLine!</h1>
-</div>
-<p>Your number one source for managing clients and projects for web developers!</p>
-<div class="col-md-6">
-<br>
-<br>
-<img class="pic" src="assets/imac.jpg">
-</div>
-</div>
-
-  <$ } $>
-
-
-
+<p> AHHHHHHH!!! </p>
 
 
 </body>
