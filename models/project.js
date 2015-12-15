@@ -5,7 +5,11 @@ var projectSchema = new mongoose.Schema({
   name:   String,
   rate: Number,
   hourly: Boolean,
-  hrlyDesign: Number
+  hrlyDesign: Number,
+  hrlyPlanning: Number,
+  hrlyQA: Number,
+  hrlyRefactor: Number,
+  cost: Number
 });
 
 var Project = mongoose.model('Project', projectSchema);
