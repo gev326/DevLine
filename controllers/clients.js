@@ -30,25 +30,26 @@ var allClients = function(req,res) {
 var createProject = function(req,res) {
    User.findById(req.user._id, function(err, user) {
       var client = user.clients.filter(function(c) {
-        return c._id.toString() === req.params.id;
+        console.log(c._id + "  hey");
+        return c._id.toString();
       })[0];
 
 
-      console.log(client);
+      console.log(client + " Here you go");
 
       client.projects.push({
         name:  req.body.name,
         rate:  req.body.rate
       });
+
       user.save(function(err) {
         res.json(client.projects.pop());
       })
   });
 }
-
 module.exports = {
-  clientCreate: clientCreate,
-  allClients:   allClients,
+  clientCreate:  clientCreate,
+  allClients:    allClients,
   createProject: createProject
 }
 

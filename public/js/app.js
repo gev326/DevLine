@@ -36,7 +36,9 @@ function router($stateProvider, $urlRouterProvider) {
 
   .state('dash', {
       url: '/dashboard',
-      templateUrl: 'templates/dashboard.html'
+      templateUrl: 'templates/dashboard.html',
+      controller: 'DashController',
+      controllerAs: 'dashCtrl'
     })
 
 
