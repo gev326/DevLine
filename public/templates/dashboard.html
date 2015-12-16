@@ -6,14 +6,56 @@
 </head>
 
 <body>
+<!-- <form>
+  <input ng-model="vm.client.name" type="text">
+  <input ng-model="vm.client.phone" type="text">
+  <input ng-model="vm.client.email" type="text"> -->
 
 
-<button ng-click="dashCtrl.createClient()">Create Client</button>
-<button ng-click="dashCtrl.createProject()">Create Project</button>
+<!-- <ul ng-repeat="client in vm.clients">
+  <strong> {{client.name}} </strong>
+  <strong> {{client.phone}} </strong>
+  <strong> {{client.email}} </strong>
+</ul>
+ -->
+
+ <form ng-submit="vm.createClient()" id="new-client" class="form-inline">
+    <div class="form-client">
+      <input type="text" name='client[name]' id="client-name" placeholder="add a client" class="form-control" ng-model="vm.client.name" />
+    </div>
+
+    <!-- <button class="btn btn-success btn-sm submit-login-button" type="submit" ng-click="vm.postFish()">Save Mah' Catch!</button> -->
+    <button class="btn btn=success btn-sm submit-create-client" type="submit">Create Client</button>
+  </form>
+
+   <form ng-submit="vm.createProject()" id="new-project" class="form-inline">
+    <div class="form-client">
+      <input type="text" name='client[name]' id="client-name" placeholder="add a project" class="form-control" ng-model="vm.project.name" />
+    </div>
+
+    <!-- <button class="btn btn-success btn-sm submit-login-button" type="submit" ng-click="vm.postFish()">Save Mah' Catch!</button> -->
+    <button class="btn btn=success btn-sm submit-create-client" type="submit">Create Client</button>
+  </form>
+
+<ul>
+  <li ng-repeat="client in vm.clients">
+    <p>{{client.name}}</p>
+    <p>{{client.phone}}</p>
+    <p>{{client.email}}</p>
+    <ul>
+      <li ng-repeat="proj in client.projects">{{proj.name}}</li>
+    </ul>
+  </li>
+</ul>
 
 
+<ul>
+  <li ng-repeat="name in vm.project">
+   <p>{{name.name}}</p>
+  </li>
+</ul>
 
-{{dashCtrl.clients}}
+
 </body>
 </html>
 

@@ -38,7 +38,7 @@ function router($stateProvider, $urlRouterProvider) {
       url: '/dashboard',
       templateUrl: 'templates/dashboard.html',
       controller: 'DashController',
-      controllerAs: 'dashCtrl'
+      controllerAs: 'vm'
     })
 
 
