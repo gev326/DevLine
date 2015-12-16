@@ -1,13 +1,55 @@
 // Require resource's model(s).
-var Client  = require('../models/client')
+var User    = require('../models/user')
+
+  var clientCreate = function(req,res) {
+
+    User.findById(req.user._id, function(err, user){
+        user.clients.push({
+          name:   req.body.name,
+          phone:  req.body.phone,
+          email:  req.body.email,
+          projects: []
+        });
+        user.save(function(err){
+          if(err) {
+            res.send(err)
+          }
+          res.json(user.clients.pop());
+        });
+    })
+
+  };
+
+
+var allClients = function(req,res) {
+  User.findById(req.user._id, function(err, user) {
+      res.json(user.clients);
+  });
+};
+
+var createProject = function(req,res) {
+   User.findById(req.user._id, function(err, user) {
+      var client = user.clients.filter(function(c) {
+        return c._id.toString() === req.params.id;
+      })[0];
+
+
+      console.log(client);
+
+      client.projects.push({
+        name:  req.body.name,
+        rate:  req.body.rate
+      });
+      user.save(function(err) {
+        res.json(client.projects.pop());
+      })
+  });
+}
 
 module.exports = {
+  clientCreate: clientCreate,
+  allClients:   allClients,
+  createProject: createProject
+}
 
-  all: function(req, res) {
-    Client.find({}, function(err, clients) {
-      if(err) return res.status(err.statusCode || 500).json(err);
-      res.json(clients);
-    });
-  },
 
-};

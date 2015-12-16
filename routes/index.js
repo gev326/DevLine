@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var userCtrl = require('../controllers/users');
+
 
 
 module.exports = function(app, passport) {
@@ -29,12 +29,9 @@ module.exports = function(app, passport) {
 
 
   // // GET /api/users
-  // router.get('/users', userCtrl.all);
+  // app.get('/home');
 
 
 }
 
-function isLoggedIn(req, res, next) {
-  if ( req.isAuthenticated() ) return next();
-  res.redirect('/auth/google');
-}
+

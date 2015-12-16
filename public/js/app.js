@@ -8,7 +8,7 @@ router.$inject = ['$stateProvider', '$urlRouterProvider'];
 
 function router($stateProvider, $urlRouterProvider) {
 
-  $urlRouterProvider.otherwise('/home');
+  $urlRouterProvider.otherwise('/');
 
   $stateProvider
     .state('home', {
@@ -23,10 +23,21 @@ function router($stateProvider, $urlRouterProvider) {
       templateUrl: 'templates/about.html'
     })
 
+    .state('clients', {
+      url: '/clients',
+      templateUrl: 'templates/clients.html'
+    })
+
+    .state('projects', {
+      url: '/projects',
+      templateUrl: 'templates/projects.html'
+    })
 
 
-
-
+  .state('dash', {
+      url: '/dashboard',
+      templateUrl: 'templates/dashboard.html'
+    })
 
 
 }
