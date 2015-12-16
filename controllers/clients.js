@@ -38,8 +38,14 @@ var createProject = function(req,res) {
       console.log(client + " Here you go");
 
       client.projects.push({
-        name:  req.body.name,
-        rate:  req.body.rate
+        name:         req.body.name,
+        rate:         req.body.rate,
+        hourly:       req.body.hourly,
+        hrlyDesign:   req.body.hrlyDesign,
+        hrlyPlanning: req.body.hrlyPlanning,
+        hrlyQA:       req.body.hrlyQA,
+        hrlyRefactor: req.body.hrlyRefactor,
+        cost:         req.body.cost
       });
 
       user.save(function(err) {
