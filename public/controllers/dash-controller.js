@@ -17,6 +17,10 @@ angular.module('app')
     list: []
   };
 
+  vm.current = {
+    client: $stateParams.client_id
+  };
+
   // vm.sp = $stateParams;
 
   vm.createClient = function() {
@@ -48,6 +52,7 @@ angular.module('app')
       cost:         vm.project.cost
     }).then(function(res){
       console.log(res);
+      vm.clients.list = res.data.clients;
     });
   };
 }]);

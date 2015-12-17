@@ -9,7 +9,6 @@
 <br>
 <br>
 <div class="container">
-  {{ vm.sp }}
   <form role="form" ng-submit="vm.createProject()" id="new-project">
     <div class="form-group">
       <input type="text" name='project-client' id="project-client" placeholder="Project Name" class="form-control" ng-model="vm.project.name">
@@ -68,35 +67,34 @@
 </ul>
  -->
 
-
- <div class="container" ng-repeat="client in vm.clients">
+ <div class="container" ng-repeat="client in vm.clients.list | filter: {'_id': vm.current.client}">
     <div class="table-responsive">
-  <table class="table" ng-repeat="proj in client.projects">
-    <thead>
-      <tr>
-        <th>Project Name</th>
-        <th>Flat Rate</th>
-        <th>Hourly Rate</th>
-        <th>Design</th>
-        <th>Planning</th>
-        <th>Quality Assurance</th>
-        <th>Refactoring</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-        <td>{{proj.name}}</td>
-        <td>{{proj.rate}}</td>
-        <td>{{proj.hourly}}</td>
-        <td>{{proj.hrlyDesign}}</td>
-        <td>{{proj.hrlyPlanning}}</td>
-        <td>{{proj.hrlyQA}}</td>
-        <td>{{proj.hrlyRefactor}}</td>
-        </tr>
-    </tbody>
-  </table>
+      <table class="table" ng-repeat="proj in client.projects">
+        <thead>
+          <tr>
+            <th>Project Name</th>
+            <th>Flat Rate</th>
+            <th>Hourly Rate</th>
+            <th>Design</th>
+            <th>Planning</th>
+            <th>Quality Assurance</th>
+            <th>Refactoring</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td>{{proj.name}}</td>
+            <td>{{proj.rate}}</td>
+            <td>{{proj.hourly}}</td>
+            <td>{{proj.hrlyDesign}}</td>
+            <td>{{proj.hrlyPlanning}}</td>
+            <td>{{proj.hrlyQA}}</td>
+            <td>{{proj.hrlyRefactor}}</td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
 
 </body>
 </html>

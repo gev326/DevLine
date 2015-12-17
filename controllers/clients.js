@@ -50,8 +50,12 @@ var createProject = function(req,res) {
       cost:         req.body.cost
     });
 
-    client.save(function(err) {
-      res.json(user);
+    user.save(function(err, user) {
+      if (err) {
+        res.json(err);
+      } else {
+        res.json(user);
+      }
     })
   });
 
