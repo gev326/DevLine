@@ -25,12 +25,16 @@ function router($stateProvider, $urlRouterProvider) {
 
     .state('clients', {
       url: '/clients',
-      templateUrl: 'templates/clients.html'
+      templateUrl: 'templates/clients.html',
+      controller: 'DashController',
+      controllerAs: 'vm'
     })
 
     .state('projects', {
       url: '/projects',
-      templateUrl: 'templates/projects.html'
+      templateUrl: 'templates/projects.html',
+      controller: 'DashController',
+      controllerAs: 'vm'
     })
 
 

@@ -35,3 +35,7 @@ a { color: #00B7FF; }
   margin-top: 10px;
   padding-top: 110px;
 }
+
+.welcome {
+  margin: 0 auto;
+}
