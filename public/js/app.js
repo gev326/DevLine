@@ -12,10 +12,10 @@ function router($stateProvider, $urlRouterProvider) {
 
   $stateProvider
     .state('home', {
-      url: '/home',
+      url: '/',
       templateUrl: 'templates/home.html',
-      controller: 'HomeController',
-      controllerAs: 'homeCtrl'
+      controller: 'DashController',
+      controllerAs: 'vm'
     })
 
     .state('about', {
@@ -38,14 +38,12 @@ function router($stateProvider, $urlRouterProvider) {
     })
 
 
-  .state('dash', {
+    .state('dash', {
       url: '/dashboard',
       templateUrl: 'templates/dashboard.html',
       controller: 'DashController',
       controllerAs: 'vm'
-    })
-
-
+    });
 }
 
 

@@ -1,16 +1,18 @@
 (function() {
   'use strict';
 
-  angular.module("app")
-    .factory("clientDataService", ["$http", function($http){
+  angular
+    .module("app")
+    .factory("clientDataService", clientDataService);
 
-      var service = {
-        clients: $http.get("/api/clients")
-      };
+  clientDataService.$inject = ["$http"];
 
-      return service;
+  function clientDataService($http) {
+    var service = {
+      clients: $http.get("/api/clients")
+    };
 
-    }]);
-
+    return service;
+  }
 
 })();

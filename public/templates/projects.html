@@ -6,20 +6,46 @@
 </head>
 <body>
 
-  <form ng-submit="vm.createProject()" id="new-project" class="form-inline">
-    <div class="form-client">
+<br>
+<br>
+<div class="container">
+  <form role="form" ng-submit="vm.createProject()" id="new-project">
+    <div class="form-group">
       <input type="text" name='project-client' id="project-client" placeholder="Project Name" class="form-control" ng-model="vm.project.name">
       <input type="text" name='project-client' id="project-client" placeholder="Flat Rate" class="form-control" ng-model="vm.project.rate">
-      <input type="text" name='project-client' id="project-client" placeholder="Hourly Rate" class="form-control" ng-model="vm.project.hourly">
+
+        <div class="checkbox">
+          <label><input type="checkbox" name='project-client' id="project-client" placeholder="Hourly Rate" class="form-control" ng-model="vm.project.hourly"> Hourly Rate </label>
+        </div>
+        <br>
       <input type="text" name='project-client' id="project-client" placeholder="Hours Designing" class="form-control" ng-model="vm.project.hrlyDesign">
       <input type="text" name='project-client' id="project-client" placeholder="Hours Planning" class="form-control" ng-model="vm.project.hrlyPlanning">
       <input type="text" name='project-client' id="project-client" placeholder="Hours Quality Assurance" class="form-control" ng-model="vm.project.hrlyQA">
       <input type="text" name='project-client' id="project-client" placeholder="Hours Refactoring" class="form-control" ng-model="vm.project.hrlyRefactor">
+
     </div>
-      <button class="btn btn=success btn-sm submit-create-client" type="submit">Create Project</button>
+
+      <button class="btn btn-primary btn-sm submit-create-client" type="submit">Create Project</button>
   </form>
 
+</div>
 
+
+ <!--  <h2>Vertical (basic) Form</h2>
+  <form role="form">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+    </div>
+
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+
+ -->
 
 <!-- <ul>
 

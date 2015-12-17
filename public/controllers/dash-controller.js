@@ -6,6 +6,7 @@ angular.module('app')
 
 .controller('DashController', ["$http","clientDataService", function($http, clientDataService) {
   var vm = this;
+
   vm.client = {
     name: '',
     phone: '',
