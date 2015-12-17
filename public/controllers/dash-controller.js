@@ -55,6 +55,10 @@ angular.module('app')
       vm.clients.list = res.data.clients;
     });
   };
+
+  vm.editProject = function(client_id, proj_id) {
+
+  };
 }]);
 
 

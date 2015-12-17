@@ -79,6 +79,7 @@
             <th>Planning</th>
             <th>Quality Assurance</th>
             <th>Refactoring</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -90,6 +91,7 @@
             <td>{{proj.hrlyPlanning}}</td>
             <td>{{proj.hrlyQA}}</td>
             <td>{{proj.hrlyRefactor}}</td>
+            <td><button ng-click="vm.editProject(client._id, proj._id)">Edit</button></td>
             </tr>
         </tbody>
       </table>
