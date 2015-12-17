@@ -2,7 +2,6 @@
 var User    = require('../models/user')
 
   var clientCreate = function(req,res) {
-
     User.findById(req.user._id, function(err, user){
         user.clients.push({
           name:   req.body.name,
@@ -14,10 +13,9 @@ var User    = require('../models/user')
           if(err) {
             res.send(err)
           }
-          res.json(user.clients.pop());
+          res.json(user);
         });
     })
-
   };
 
 

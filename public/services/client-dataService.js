@@ -9,10 +9,11 @@
 
   function clientDataService($http) {
     var service = {
-      clients: $http.get("/api/clients")
+      clients:  $http.get("/api/clients")
     };
 
     return service;
   }
+
 
 })();

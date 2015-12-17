@@ -18,10 +18,10 @@
           <label><input type="checkbox" name='project-client' id="project-client" placeholder="Hourly Rate" class="form-control" ng-model="vm.project.hourly"> Hourly Rate </label>
         </div>
         <br>
-      <input type="text" name='project-client' id="project-client" placeholder="Hours Designing" class="form-control" ng-model="vm.project.hrlyDesign">
-      <input type="text" name='project-client' id="project-client" placeholder="Hours Planning" class="form-control" ng-model="vm.project.hrlyPlanning">
-      <input type="text" name='project-client' id="project-client" placeholder="Hours Quality Assurance" class="form-control" ng-model="vm.project.hrlyQA">
-      <input type="text" name='project-client' id="project-client" placeholder="Hours Refactoring" class="form-control" ng-model="vm.project.hrlyRefactor">
+      <input type="text" ng-show="vm.project.hourly" name='project-client' id="project-client" placeholder="Hours Designing" class="form-control" ng-model="vm.project.hrlyDesign">
+      <input type="text" ng-show="vm.project.hourly" name='project-client' id="project-client" placeholder="Hours Planning" class="form-control" ng-model="vm.project.hrlyPlanning">
+      <input type="text" ng-show="vm.project.hourly" name='project-client' id="project-client" placeholder="Hours Quality Assurance" class="form-control" ng-model="vm.project.hrlyQA">
+      <input type="text" ng-show="vm.project.hourly" name='project-client' id="project-client" placeholder="Hours Refactoring" class="form-control" ng-model="vm.project.hrlyRefactor">
 
     </div>
 

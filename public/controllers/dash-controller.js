@@ -7,46 +7,31 @@ angular.module('app')
 .controller('DashController', ["$http","clientDataService", "userDataService", function($http, clientDataService, userDataService) {
   var vm = this;
 
-  vm.client = {
-    name: '',
+  vm.user    = userDataService;
+  vm.client  = {
+    name:  '',
     phone: '',
     email: ''
-  }
-
-  vm.user = userDataService;
-
-
-  // vm.getClients        = getClients;
-  // vm.deleteClient   = deleteClient;
-  // vm.updateClient   = updateClient;
-  // vm.postClient     = postClient;
-
-
-// function getClients() {
-//   $http.get('/api/clients').then(function(response){
-//     vm.clients = response.data;
-//   }, function(errRes) {
-//     console.error('error', errRes);
-//   });
-// }
-
-  // vm.getClients = function() {
-  //   $http.get("/api/clients").then(function(response){
-  //     vm.clients = response.data;
-  //   }, function(errRes) {
-  //     console.log("error ", errRes);
-  //   });
-  // }
+  };
+  vm.clients = {
+    list: []
+  };
 
   vm.createClient = function() {
     $http.post("/api/clients", vm.client
     ).then(function(response){
-      vm.client = response.data;
+      vm.client = {
+        name:  '',
+        phone: '',
+        email: ''
+      };
+
+      vm.clients.list = response.data.clients;
     })
   };
 
   clientDataService.clients.then(function(res) {
-    vm.clients = res.data;
+    vm.clients.list = res.data;
   });
 
   vm.createProject = function() {
