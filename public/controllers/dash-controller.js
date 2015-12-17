@@ -55,7 +55,7 @@ angular.module('app')
       hrlyPlanning: vm.project.hrlyPlanning ,
       hrlyQA: vm.project.hrlyQA,
       hrlyRefactor: vm.project.hrlyRefactor ,
-      cost: vm.project.cost,
+      cost: vm.project.cost
     }).then(function(res){
       var client = vm.clients.filter(function(c) {
         return c._id.toString();
