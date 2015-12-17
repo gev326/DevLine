@@ -8,7 +8,7 @@
 
 
 
- <form ng-submit="vm.createClient()" id="new-client" class="form-inline">
+  <form ng-submit="vm.createClient()" id="new-client" class="form-inline">
     <div class="form-client">
       <input type="text" name='client[name]' id="client-name" placeholder="Name" class="form-control" ng-model="vm.client.name">
       <input type="text" name='client[name]' id="client-name" placeholder="Phone" class="form-control" ng-model="vm.client.phone">
@@ -27,23 +27,23 @@
     <div class="table-responsive">
   <table class="table">
     <thead>
-      <tr>
-        <th>Name</th>
-        <th>Phone</th>
-        <th>Email</th>
-        <th>Project</th>
-      </tr>
+        <tr>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Project</th>
+        </tr>
     </thead>
-    <tbody >
-      <tr>
-        <td>{{client.name}}</td>
-        <td>{{client.phone}}</td>
-        <td>{{client.email}}</td>
-        <td><a ui-sref-active="active" ui-sref="projects">Client Projects</a></td>
-        <td><a ui-sref-active="active" ui-sref="projects">Edit Client</a></td>
-      </tr>
+     <tbody >
+        <tr>
+          <td>{{client.name}}</td>
+          <td>{{client.phone}}</td>
+          <td>{{client.email}}</td>
+          <td><a ui-sref-active="active" ui-sref="projects">Client Projects</a></td>
+          <td><a ui-sref-active="active" ui-sref="projects">Edit Client</a></td>
+        </tr>
     </tbody>
-  </table>
+ </table>
   </div>
 </div>
 

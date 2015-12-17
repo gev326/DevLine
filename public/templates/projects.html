@@ -5,7 +5,8 @@
   <title>Document</title>
 </head>
 <body>
-   <form ng-submit="vm.createProject()" id="new-project" class="form-inline">
+
+  <form ng-submit="vm.createProject()" id="new-project" class="form-inline">
     <div class="form-client">
       <input type="text" name='project-client' id="project-client" placeholder="Project Name" class="form-control" ng-model="vm.project.name">
       <input type="text" name='project-client' id="project-client" placeholder="Flat Rate" class="form-control" ng-model="vm.project.rate">
@@ -15,8 +16,8 @@
       <input type="text" name='project-client' id="project-client" placeholder="Hours Quality Assurance" class="form-control" ng-model="vm.project.hrlyQA">
       <input type="text" name='project-client' id="project-client" placeholder="Hours Refactoring" class="form-control" ng-model="vm.project.hrlyRefactor">
     </div>
-     <button class="btn btn=success btn-sm submit-create-client" type="submit">Create Project</button>
- </form>
+      <button class="btn btn=success btn-sm submit-create-client" type="submit">Create Project</button>
+  </form>
 
 
 
@@ -42,8 +43,8 @@
 
 
  <div class="container" ng-repeat="client in vm.clients">
-    <div class="table-responsive" ng-repeat="proj in client.projects">
-  <table class="table">
+    <div class="table-responsive">
+  <table class="table" ng-repeat="proj in client.projects">
     <thead>
       <tr>
         <th>Project Name</th>
@@ -56,15 +57,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-      <td>{{proj.name}}</td>
-      <td>{{proj.rate}}</td>
-      <td>{{proj.hourly}}</td>
-      <td>{{proj.hrlyDesign}}</td>
-      <td>{{proj.hrlyPlanning}}</td>
-      <td>{{proj.hrlyQA}}</td>
-      <td>{{proj.hrlyRefactor}}</td>
-      </tr>
+        <tr>
+        <td>{{proj.name}}</td>
+        <td>{{proj.rate}}</td>
+        <td>{{proj.hourly}}</td>
+        <td>{{proj.hrlyDesign}}</td>
+        <td>{{proj.hrlyPlanning}}</td>
+        <td>{{proj.hrlyQA}}</td>
+        <td>{{proj.hrlyRefactor}}</td>
+        </tr>
     </tbody>
   </table>
   </div>
