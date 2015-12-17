@@ -31,12 +31,11 @@ function router($stateProvider, $urlRouterProvider) {
     })
 
     .state('projects', {
-      url: '/projects',
+      url: '/projects/:client_id',
       templateUrl: 'templates/projects.html',
       controller: 'DashController',
       controllerAs: 'vm'
     })
-
 
     .state('dash', {
       url: '/dashboard',

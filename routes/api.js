@@ -14,7 +14,7 @@ router.get('/me', function(req, res) {
   res.json(req.user);
 });
 
-router.post('/clients/:id/projects', clientsCtrl.createProject)
+router.post('/clients/:client_id/projects', clientsCtrl.createProject)
 
 function isLoggedIn(req, res, next) {
   if ( req.isAuthenticated() ) return next();

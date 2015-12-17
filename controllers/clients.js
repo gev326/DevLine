@@ -26,30 +26,36 @@ var allClients = function(req,res) {
 };
 
 var createProject = function(req,res) {
-   User.findById(req.user._id, function(err, user) {
-      var client = user.clients.filter(function(c) {
-        console.log(c._id + "  hey");
-        return c._id.toString();
-      })[0];
+  console.log("Creating project!");
+
+  console.log("Project:", req.body);
 
 
-      console.log(client + " Here you go");
+  User.findById(req.user._id, function(err, user) {
 
-      client.projects.push({
-        name:         req.body.name,
-        rate:         req.body.rate,
-        hourly:       req.body.hourly,
-        hrlyDesign:   req.body.hrlyDesign,
-        hrlyPlanning: req.body.hrlyPlanning,
-        hrlyQA:       req.body.hrlyQA,
-        hrlyRefactor: req.body.hrlyRefactor,
-        cost:         req.body.cost
-      });
+    var client = user.clients.find(function(cc) {
+      return cc._id.toString() === req.params.client_id;
+    });
 
-      user.save(function(err) {
-        res.json(client.projects.pop());
-      })
+    console.log("Client:", client);
+
+    client.projects.push({
+      name:         req.body.name,
+      rate:         req.body.rate,
+      hourly:       req.body.hourly,
+      hrlyDesign:   req.body.hrlyDesign,
+      hrlyPlanning: req.body.hrlyPlanning,
+      hrlyQA:       req.body.hrlyQA,
+      hrlyRefactor: req.body.hrlyRefactor,
+      cost:         req.body.cost
+    });
+
+    client.save(function(err) {
+      res.json(user);
+    })
   });
+
+
 }
 module.exports = {
   clientCreate:  clientCreate,

@@ -39,7 +39,7 @@
           <td>{{client.name}}</td>
           <td>{{client.phone}}</td>
           <td>{{client.email}}</td>
-          <td><a ui-sref-active="active" ui-sref="projects">Client Projects</a></td>
+          <td><a ui-sref-active="active" ui-sref="projects({client_id: client._id})">Client's Projects</a></td>
           <td><a ui-sref-active="active" ui-sref="projects">Edit Client</a></td>
         </tr>
     </tbody>
