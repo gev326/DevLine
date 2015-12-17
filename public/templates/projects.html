@@ -5,28 +5,70 @@
   <title>Document</title>
 </head>
 <body>
+   <form ng-submit="vm.createProject()" id="new-project" class="form-inline">
+    <div class="form-client">
+      <input type="text" name='project-client' id="project-client" placeholder="Project Name" class="form-control" ng-model="vm.project.name">
+      <input type="text" name='project-client' id="project-client" placeholder="Flat Rate" class="form-control" ng-model="vm.project.rate">
+      <input type="text" name='project-client' id="project-client" placeholder="Hourly Rate" class="form-control" ng-model="vm.project.hourly">
+      <input type="text" name='project-client' id="project-client" placeholder="Hours Designing" class="form-control" ng-model="vm.project.hrlyDesign">
+      <input type="text" name='project-client' id="project-client" placeholder="Hours Planning" class="form-control" ng-model="vm.project.hrlyPlanning">
+      <input type="text" name='project-client' id="project-client" placeholder="Hours Quality Assurance" class="form-control" ng-model="vm.project.hrlyQA">
+      <input type="text" name='project-client' id="project-client" placeholder="Hours Refactoring" class="form-control" ng-model="vm.project.hrlyRefactor">
+    </div>
+     <button class="btn btn=success btn-sm submit-create-client" type="submit">Create Project</button>
+ </form>
+
+
+
+<!-- <ul>
+
+    <ul ng-repeat="proj in client.projects">
+      {{proj.name}}
+      {{proj.rate}}
+
+
+
+    </ul>
+  </li>
+</ul>
+ -->
+
+<!-- <ul>
+  <li ng-repeat="name in vm.project">
+   <p>{{name.name}}</p>
+  </li>
+</ul>
+ -->
+
+
  <div class="container" ng-repeat="client in vm.clients">
-    <div class="table-responsive">
+    <div class="table-responsive" ng-repeat="proj in client.projects">
   <table class="table">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Phone</th>
-        <th>Email</th>
-        <th>Project</th>
+        <th>Project Name</th>
+        <th>Flat Rate</th>
+        <th>Hourly Rate</th>
+        <th>Design</th>
+        <th>Planning</th>
+        <th>Quality Assurance</th>
+        <th>Refactoring</th>
       </tr>
     </thead>
-    <tbody >
+    <tbody>
       <tr>
-        <td>{{client.name}}</td>
-        <td>{{client.phone}}</td>
-        <td>{{client.email}}</td>
-        <td><a ui-sref-active="active" ui-sref="projects">Client Projects</a></td>
-        <td><a ui-sref-active="active" ui-sref="projects">Edit Client</a></td>
+      <td>{{proj.name}}</td>
+      <td>{{proj.rate}}</td>
+      <td>{{proj.hourly}}</td>
+      <td>{{proj.hrlyDesign}}</td>
+      <td>{{proj.hrlyPlanning}}</td>
+      <td>{{proj.hrlyQA}}</td>
+      <td>{{proj.hrlyRefactor}}</td>
       </tr>
     </tbody>
   </table>
   </div>
 </div>
+
 </body>
 </html>
