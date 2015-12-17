@@ -7,8 +7,12 @@ router.post('/clients', clientsCtrl.clientCreate);
 router.get('/clients',  clientsCtrl.allClients);
 
 
-router.get('/user/:id', userCtrl.userShow);
 router.get('/users', userCtrl.userIndex);
+router.get('/user/:id', userCtrl.userShow);
+
+router.get('/me', function(req, res) {
+  res.json(req.user);
+});
 
 router.post('/clients/:id/projects', clientsCtrl.createProject)
 

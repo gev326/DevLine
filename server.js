@@ -61,7 +61,7 @@ app.use(debugReq);
 require('./routes/index')(app,passport);
 var apiRouter = require('./routes/api');
 
-app.use('/api',apiRouter);
+app.use('/api', apiRouter);
 
 // Catches all 404 routes.
 app.use(function(req, res, next) {

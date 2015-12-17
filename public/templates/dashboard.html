@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>DashBoard</title>
-</head>
-
-<body>
 
 <div class="welcome">
-  <h2> Welcome To Devline! </h2>
+  <h2> Welcome To Devline, {{ vm.user.data.name }}! </h2>
 
   <p> Add your first client to get started </p>
-<a ui-sref-active="active" ui-sref="clients"  class="btn btn-primary" data-toggle="modal">Add a Client</a>
-
+  <a ui-sref-active="active" ui-sref="clients"  class="btn btn-primary" data-toggle="modal">Add a Client</a>
 </div>
 
 <!-- <form>
@@ -134,6 +125,3 @@
   </li>
 </ul>
  -->
-
-</body>
-</html>

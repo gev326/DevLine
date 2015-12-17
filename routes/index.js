@@ -1,8 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-
-
 module.exports = function(app, passport) {
   // The root route renders our only view
   app.get('/', function(req, res) {
@@ -18,13 +16,13 @@ module.exports = function(app, passport) {
     'google',
     {
       successRedirect: '/#/dashboard',
-      failureRedirect: '/'
+      failureRedirect: '/#/'
     }
   ));
 
   app.get('/logout', function(req, res){
     req.logout();
-    res.redirect('/');
+    res.redirect('/#/');
   });
 
 

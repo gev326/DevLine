@@ -25,6 +25,5 @@ var User = require('../models/user')
 
 module.exports = {
   userShow:   userShow,
-  userIndex:  userIndex,
-
+  userIndex:  userIndex
 }
