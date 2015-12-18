@@ -88,11 +88,9 @@ header .header-content .header-content-inner hr,p{
 
 }
 
-/*.container #new-project{
-  border: 1px solid black;
-}*/
 
 .btn-primary {
   background-color: #808583;
   color: #88E753;
 }
+
