@@ -24,3 +24,12 @@ Express |
 Passport |
 MongoDB |
 Gulp |
+
+
+### IceBox
+
+[ ] User should be able to see and update graph/data on project information (hours for each task, cost, etc)
+
+[ ] User should be able to send documents to clients via email
+
+[ ] Implement another API for document uploading such as Evernote, Dropbox, or Google Docs
