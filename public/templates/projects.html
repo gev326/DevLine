@@ -1,71 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-</head>
-<body>
 
 <br>
 <br>
 <div class="container">
-  <form role="form" ng-submit="vm.createProject()" id="new-project">
+  <form class="form-inline" role="form" ng-submit="vm.createProject()" id="new-project">
     <div class="form-group">
+      <h4> Flat Rate </h4>
       <input type="text" name='project-client' id="project-client" placeholder="Project Name" class="form-control" ng-model="vm.project.name">
-      <input type="text" name='project-client' id="project-client" placeholder="Flat Rate" class="form-control" ng-model="vm.project.rate">
+      <input type="text" name='project-client' id="project-client" placeholder="Project Rate" class="form-control" ng-model="vm.project.rate">
 
-        <div class="checkbox">
-          <label><input type="checkbox" name='project-client' id="project-client" placeholder="Hourly Rate" class="form-control" ng-model="vm.project.hourly"> Hourly Rate </label>
-        </div>
+        <br>
+        <br>
+      <h4> Hourly Project </h4>
+      <label><input type="checkbox" name='project-client' id="project-client" placeholder="Hourly Rate" class="form-control" ng-model="vm.project.hourly"> Hourly Based Project </label>
         <br>
       <input type="text" ng-show="vm.project.hourly" name='project-client' id="project-client" placeholder="Hours Designing" class="form-control" ng-model="vm.project.hrlyDesign">
       <input type="text" ng-show="vm.project.hourly" name='project-client' id="project-client" placeholder="Hours Planning" class="form-control" ng-model="vm.project.hrlyPlanning">
       <input type="text" ng-show="vm.project.hourly" name='project-client' id="project-client" placeholder="Hours Quality Assurance" class="form-control" ng-model="vm.project.hrlyQA">
       <input type="text" ng-show="vm.project.hourly" name='project-client' id="project-client" placeholder="Hours Refactoring" class="form-control" ng-model="vm.project.hrlyRefactor">
+      <!-- <input type="text" ng-show="vm.project.hourly" name='project-client' id="project-client" placeholder="Total Cost" class="form-control" ng-model="vm.project.cost"> -->
 
-    </div>
 
       <button class="btn btn-primary btn-sm submit-create-client" type="submit">Create Project</button>
   </form>
-
+    </div>
 </div>
 
 
- <!--  <h2>Vertical (basic) Form</h2>
-  <form role="form">
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email">
-    </div>
-    <div class="form-group">
-      <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" placeholder="Enter password">
-    </div>
-
-    <button type="submit" class="btn btn-default">Submit</button>
-  </form>
-
- -->
-
-<!-- <ul>
-
-    <ul ng-repeat="proj in client.projects">
-      {{proj.name}}
-      {{proj.rate}}
-
-
-
-    </ul>
-  </li>
-</ul>
- -->
-
-<!-- <ul>
-  <li ng-repeat="name in vm.project">
-   <p>{{name.name}}</p>
-  </li>
-</ul>
- -->
+<br>
+<br>
 
  <div class="container" ng-repeat="client in vm.clients.list | filter: {'_id': vm.current.client}">
     <div class="table-responsive">
@@ -73,24 +35,25 @@
         <thead>
           <tr>
             <th>Project Name</th>
-            <th>Flat Rate</th>
-            <th>Hourly Rate</th>
+
+            <th>Rate</th>
             <th>Design</th>
             <th>Planning</th>
             <th>Quality Assurance</th>
             <th>Refactoring</th>
-            <th></th>
+            <th>Total Cost</th>
           </tr>
         </thead>
         <tbody>
             <tr>
             <td>{{proj.name}}</td>
-            <td>{{proj.rate}}</td>
-            <td>{{proj.hourly}}</td>
+
+            <td>{{proj.cost || proj.rate}}</td>
             <td>{{proj.hrlyDesign}}</td>
             <td>{{proj.hrlyPlanning}}</td>
             <td>{{proj.hrlyQA}}</td>
             <td>{{proj.hrlyRefactor}}</td>
+            <td>{{(proj.rate * (proj.hrlyDesign + proj.hrlyPlanning + proj.hrlyQA + proj.hrlyRefactor)) || proj.rate}}</td>
             <td><button ng-click="vm.editProject(client._id, proj._id)">Edit</button></td>
             </tr>
         </tbody>
@@ -98,5 +61,4 @@
     </div>
   </div>
 
-</body>
-</html>
+

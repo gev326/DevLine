@@ -8,6 +8,9 @@ angular.module('app')
   var vm = this;
 
   vm.user    = userDataService;
+
+
+
   vm.client  = {
     name:  '',
     phone: '',
