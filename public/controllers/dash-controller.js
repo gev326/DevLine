@@ -52,7 +52,7 @@ angular.module('app')
       hrlyPlanning: vm.project.hrlyPlanning ,
       hrlyQA:       vm.project.hrlyQA,
       hrlyRefactor: vm.project.hrlyRefactor ,
-      cost:         vm.project.cost
+      cost:         vm.project.rate
     }).then(function(res){
       console.log(res);
       vm.clients.list = res.data.clients;
@@ -60,8 +60,14 @@ angular.module('app')
   };
 
   vm.editProject = function(client_id, proj_id) {
-
+    vm.editing = true;
   };
+
+  vm.doneEditing = function() {
+    vm.editing = false;
+
+
+  }
 }]);
 
 

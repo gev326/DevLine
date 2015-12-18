@@ -16,10 +16,11 @@
 <br>
 <br>
 
-
+   <div class="container" class="col-sm-8" >
+  <h4> {{ vm.user.data.name }}'s Clients </h4>
+  </div>
   <div class="container" class="col-sm-8" ng-repeat="client in vm.clients.list">
     <div class="table-responsive">
-      <h4> {{ vm.user.data.name }}'s Clients </h4>
       <table class="table">
         <thead>
           <tr>

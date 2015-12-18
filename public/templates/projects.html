@@ -1,7 +1,7 @@
 
 <br>
 <br>
-<div class="container">
+<div class="container" class="col-sm-12">
   <form class="form-inline" role="form" ng-submit="vm.createProject()" id="new-project">
     <div class="form-group">
       <h4> Flat Rate </h4>
@@ -30,7 +30,7 @@
 
  <div class="container" ng-repeat="client in vm.clients.list | filter: {'_id': vm.current.client}">
     <div class="table-responsive">
-        <h4> {{ vm.user.data.name }}'s Projects for {{vm.clients.list.name}}</h4>
+        <h4> {{ vm.user.data.name }}'s Projects</h4>
 
       <table class="table" ng-repeat="proj in client.projects">
         <thead>
@@ -45,19 +45,29 @@
           </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr ng-hide="vm.editing">
             <td>{{proj.name}}</td>
-            <td>{{proj.cost || proj.rate}}</td>
+            <td>${{proj.rate}}</td>
             <td>{{proj.hrlyDesign}}</td>
             <td>{{proj.hrlyPlanning}}</td>
             <td>{{proj.hrlyQA}}</td>
             <td>{{proj.hrlyRefactor}}</td>
-            <td>{{(proj.rate * (proj.hrlyDesign + proj.hrlyPlanning + proj.hrlyQA + proj.hrlyRefactor)) || proj.rate}}</td>
+            <td>${{((proj.rate) * ((proj.hrlyDesign) + (proj.hrlyPlanning) + (proj.hrlyQA) + (proj.hrlyRefactor)))|| proj.rate}} </td>
             <td><button class="btn btn-primary btn-sm submit-create-client" ng-click="vm.editProject(client._id, proj._id)">Edit</button></td>
+            </tr>
+            <tr ng-show="vm.editing">
+            <td><input ng-model="proj.name"></td>
+            <td><input ng-model="proj.rate"></td>
+            <td><input ng-model="proj.hrlyDesign"></td>
+            <td><input ng-model="proj.hrlyPlanning"></td>
+            <td><input ng-model="proj.hrlyQA"></td>
+            <td><input ng-model="proj.hrlyRefactor"></td>
+            <td>${{((proj.rate) * ((proj.hrlyDesign) + (proj.hrlyPlanning) + (proj.hrlyQA) + (proj.hrlyRefactor)))|| proj.rate}} </td>
+            <td><button class="btn btn-primary btn-sm submit-create-client" ng-click="vm.doneEditing()">Save</button></td>
             </tr>
         </tbody>
       </table>
     </div>
   </div>
 
-
+<!-- <td>{{(proj.rate * (proj.hrlyDesign + proj.hrlyPlanning + proj.hrlyQA + proj.hrlyRefactor)) || proj.rate}}</td> -->
