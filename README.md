@@ -11,6 +11,8 @@ The number one source for freelance web developers and teams to manage their pro
 
 ## Technologies Used
 
+### MEAN Stack
+
 Development | APIs | Deplployment
 ------------|------|-------------
 HTML | Google Oauth| Heroku
@@ -21,4 +23,4 @@ Node.js |
 Express |
 Passport |
 MongoDB |
-Gulp
+Gulp |
