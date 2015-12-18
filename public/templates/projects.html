@@ -51,7 +51,7 @@
             <td>{{proj.hrlyQA}}</td>
             <td>{{proj.hrlyRefactor}}</td>
             <td>{{(proj.rate * (proj.hrlyDesign + proj.hrlyPlanning + proj.hrlyQA + proj.hrlyRefactor)) || proj.rate}}</td>
-            <td><button ng-click="vm.editProject(client._id, proj._id)">Edit</button></td>
+            <td><button class="btn btn-primary btn-sm submit-create-client" ng-click="vm.editProject(client._id, proj._id)">Edit</button></td>
             </tr>
         </tbody>
       </table>
