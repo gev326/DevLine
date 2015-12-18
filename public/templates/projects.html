@@ -30,6 +30,8 @@
 
  <div class="container" ng-repeat="client in vm.clients.list | filter: {'_id': vm.current.client}">
     <div class="table-responsive">
+        <h4> {{ vm.user.data.name }}'s Projects for {{vm.clients.list.name}}</h4>
+
       <table class="table" ng-repeat="proj in client.projects">
         <thead>
           <tr>

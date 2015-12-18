@@ -60,6 +60,7 @@ angular.module('app')
   };
 
   vm.editProject = function(client_id, proj_id) {
+    $http.put("/api/clients/" + client_id + proj_id)
 
   };
 }]);
